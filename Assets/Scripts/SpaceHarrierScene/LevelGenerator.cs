@@ -39,17 +39,21 @@ namespace SpaceHarrierScene
         
         public int stepSize;
         public float floorDistance;
+
+        public float enemyRespawnTime;
         
         private int _currentStep;
         private int _obstaclesToSpawn = 20;
         
         public GameObject tileObject;
         public List<GameObject> obstacles;
-        
+        public List<GameObject> enemies;
+
         private void Start()
         {
             _currentStep = 1;
             SpawnMoreLevel();
+            InvokeRepeating(nameof(SpawnEnemies), enemyRespawnTime, enemyRespawnTime);
         }
 
         public void SpawnMoreLevel()
@@ -64,8 +68,6 @@ namespace SpaceHarrierScene
             {
                 Vector3 spawnPos = new Vector3(Random.Range(-stepSize, stepSize), 0,
                     Random.Range(stepSize * (_currentStep - 1), stepSize * _currentStep));
-
-                Debug.Log(spawnPos);
                 
                 if (Physics.OverlapCapsule(spawnPos + Vector3.down * floorDistance,
                         spawnPos + Vector3.up * floorDistance, 5.0f, obstaclesLayerMask).Length < 1)
@@ -82,6 +84,11 @@ namespace SpaceHarrierScene
             }
             
             _currentStep++;
+        }
+
+        private void SpawnEnemies()
+        {
+            
         }
     }
 }

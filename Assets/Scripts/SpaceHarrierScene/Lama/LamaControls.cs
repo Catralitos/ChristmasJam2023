@@ -1,7 +1,6 @@
-using System;
 using UnityEngine;
 
-namespace SpaceHarrierScene
+namespace SpaceHarrierScene.Lama
 {
     public class LamaControls : MonoBehaviour
     {
