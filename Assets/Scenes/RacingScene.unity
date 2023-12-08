@@ -446,13 +446,13 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 330585543}
   serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 1, z: -10}
+  m_LocalRotation: {x: 0.1730999, y: 0.6696637, z: -0.16485818, w: 0.7031421}
+  m_LocalPosition: {x: 559.13, y: 5.1, z: 398.72}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 27.66, y: 87.206, z: 0}
 --- !u!114 &330585547
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2204,7 +2204,7 @@ MonoBehaviour:
   crossingTextureInfoIndex: 0
   handleSelection: 1
   positionHandleSelection: 1
-  markerDirXZ: 0
+  markerDirXZ: 1
   markerDirXZInt: 1
   defaultCrossing: {fileID: 0}
   defaultTCrossing: {fileID: 0}
@@ -2453,16 +2453,17 @@ MonoBehaviour:
   OOODDDCDQCScript: {fileID: 0}
   OOCCQDOQQOElement: -1
   OQCQQCDQQQ: -1
-  ODDOQCCDQC: {fileID: 0}
-  OOCDCCCOCQ: {fileID: 0}
+  ODDOQCCDQC: {fileID: 1821478866}
+  OOCDCCCOCQ: {fileID: 1821478866}
   OOOCQDOOQQ: {fileID: 0}
-  OQQQOQDOCO: -1
+  OQQQOQDOCO: 1
   selectedRoadSOMarker: -1
   selectedMarkerNode: -1
   selectedMarkerNodes: 
   selectedMarkerSONode: -1
   selectedMarkerSONodes: 
-  selectedObjects: []
+  selectedObjects:
+  - {fileID: 1479063815}
   selectedExitRoad: -1
   newRoadFlag: 0
   roadTypeUpdateFlag: 1
@@ -2621,7 +2622,7 @@ MonoBehaviour:
   endCapColor: {r: 0.35, g: 0.5, b: 0.9, a: 1}
   soSectionMaterial: {fileID: 0}
   v32b4Flag: 1
-  ctrlKey: 1
+  ctrlKey: 0
   soSectionInstance: {fileID: 0}
   ignoreFlexConnectorUpdate: 0
   surfaceChangeFlag: 0
@@ -2850,6 +2851,23 @@ MonoBehaviour:
   perpDirRotated: {x: 0.059448328, y: 0, z: -0.9982314}
   markerStartUVY: 0
   customPoints: []
+--- !u!114 &1479063815
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 561528938, guid: f56d46228aee4734f9114056c53bb57e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  roadScr: {fileID: 1821478866}
+  prefabScr: {fileID: 0}
+  markers: 01000000
+  startEnd: 0
+  prefab: {fileID: 0}
 --- !u!114 &1508297718
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3756,7 +3774,7 @@ MonoBehaviour:
   angleThresholdFlag: 0
   closedTrack: 1
   minNodeDistance: 5
-  nodeWithinRange: 12
+  nodeWithinRange: 1
   uvTiling: 1
   planarUVs: 0
   flipNormals: 0
@@ -11434,6 +11452,89 @@ MonoBehaviour:
   perpDirRotated: {x: -0.9446172, y: 0, z: 0.32817402}
   markerStartUVY: 0.46652985
   customPoints: []
+--- !u!1001 &2125272481
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 351175410173566817, guid: ed2378d0068972347a09e6105bd2b264,
+        type: 3}
+      propertyPath: m_LocalScale.x
+      value: 0.25
+      objectReference: {fileID: 0}
+    - target: {fileID: 351175410173566817, guid: ed2378d0068972347a09e6105bd2b264,
+        type: 3}
+      propertyPath: m_LocalScale.y
+      value: 0.25
+      objectReference: {fileID: 0}
+    - target: {fileID: 351175410173566817, guid: ed2378d0068972347a09e6105bd2b264,
+        type: 3}
+      propertyPath: m_LocalScale.z
+      value: 0.25
+      objectReference: {fileID: 0}
+    - target: {fileID: 351175410173566817, guid: ed2378d0068972347a09e6105bd2b264,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 564.1
+      objectReference: {fileID: 0}
+    - target: {fileID: 351175410173566817, guid: ed2378d0068972347a09e6105bd2b264,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0.97
+      objectReference: {fileID: 0}
+    - target: {fileID: 351175410173566817, guid: ed2378d0068972347a09e6105bd2b264,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 397.73
+      objectReference: {fileID: 0}
+    - target: {fileID: 351175410173566817, guid: ed2378d0068972347a09e6105bd2b264,
+        type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 0.7113307
+      objectReference: {fileID: 0}
+    - target: {fileID: 351175410173566817, guid: ed2378d0068972347a09e6105bd2b264,
+        type: 3}
+      propertyPath: m_LocalRotation.x
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 351175410173566817, guid: ed2378d0068972347a09e6105bd2b264,
+        type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0.70285755
+      objectReference: {fileID: 0}
+    - target: {fileID: 351175410173566817, guid: ed2378d0068972347a09e6105bd2b264,
+        type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 351175410173566817, guid: ed2378d0068972347a09e6105bd2b264,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 351175410173566817, guid: ed2378d0068972347a09e6105bd2b264,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 89.313
+      objectReference: {fileID: 0}
+    - target: {fileID: 351175410173566817, guid: ed2378d0068972347a09e6105bd2b264,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6523378256448083829, guid: ed2378d0068972347a09e6105bd2b264,
+        type: 3}
+      propertyPath: m_Name
+      value: Vehicle 2
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: ed2378d0068972347a09e6105bd2b264, type: 3}
 --- !u!114 &2136543497
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -11539,3 +11640,4 @@ SceneRoots:
   - {fileID: 832575519}
   - {fileID: 930478045}
   - {fileID: 1310119018}
+  - {fileID: 2125272481}
