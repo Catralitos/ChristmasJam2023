@@ -1,5 +1,5 @@
+using SpaceHarrierScene.Lama;
 using UnityEngine;
-using UnityEngine.Serialization;
 
 namespace SpaceHarrierScene
 {
@@ -19,15 +19,12 @@ namespace SpaceHarrierScene
 
         public float distanceFromPlayer;
         
-        public Transform playerTransform;
-        
         /// <summary>
         /// Updates this instance.
         /// </summary>
         private void Update()
         {
-            //Vector3 playerPosition = PlayerEntity.Instance.gameObject.transform.position;
-            Vector3 playerPosition = playerTransform.position;
+            Vector3 playerPosition = LamaEntity.Instance.gameObject.transform.position;
             Transform cameraTransform = transform;
             //Set the position to be the same as the player«s, but clamp so it doesn't go over the limits
             cameraTransform.position = new Vector3(

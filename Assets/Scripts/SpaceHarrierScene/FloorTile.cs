@@ -9,7 +9,6 @@ namespace SpaceHarrierScene
         
         public void OnTriggerEnter(Collider other)
         {
-            Debug.Log("Entrou no trigger");
             if (playerMask.HasLayer(other.gameObject.layer))
             {
                 LevelGenerator.Instance.SpawnMoreLevel();
