@@ -229,8 +229,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6ccfe0050908f0c4d8862f5b95ea8d76, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  horizontalLimit: 55
-  verticalLimit: 10
+  horizontalLimit: 110
+  verticalLimit: 6
   distanceFromPlayer: 5
 --- !u!114 &253958106
 MonoBehaviour:
@@ -326,12 +326,12 @@ MonoBehaviour:
   floorLayerMask:
     serializedVersion: 2
     m_Bits: 128
-  jetSpawnDistance: 150
+  jetSpawnDistance: 100
   stepSize: 250
   floorDistance: 10
   enemyRespawnTime: 10
-  startingObstacles: 20
-  startingEnemies: 1
+  startingObstacles: 10
+  startingEnemies: 5
   tileObject: {fileID: 2727692317844146079, guid: ccb73006688c2fd4ebd80cde5a3e8b7b,
     type: 3}
   obstacles:
@@ -466,8 +466,18 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 2656991583656788407, guid: 6c0e42adc92a5954290b9670d5c7229e,
         type: 3}
+      propertyPath: verticalLimit
+      value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: 2656991583656788407, guid: 6c0e42adc92a5954290b9670d5c7229e,
+        type: 3}
+      propertyPath: horizontalLimit
+      value: 115
+      objectReference: {fileID: 0}
+    - target: {fileID: 2656991583656788407, guid: 6c0e42adc92a5954290b9670d5c7229e,
+        type: 3}
       propertyPath: forwardFlightSpeed
-      value: 25
+      value: 50
       objectReference: {fileID: 0}
     - target: {fileID: 4432992353564608701, guid: 6c0e42adc92a5954290b9670d5c7229e,
         type: 3}

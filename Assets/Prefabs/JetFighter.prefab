@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 8592247033512617995}
   - component: {fileID: 3757390852405533648}
   - component: {fileID: 437588007145636608}
+  - component: {fileID: 2921186808018554098}
   m_Layer: 10
   m_Name: JetFighter
   m_TagString: Untagged
@@ -149,3 +150,20 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   distanceFromPlayer: 15
   forwardFlightSpeed: 25
+  bulletCooldown: 3
+  bulletPrefab: {fileID: 276288568277743453, guid: 9560a1a653844bc49912eca007c6c4bc,
+    type: 3}
+--- !u!114 &2921186808018554098
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4448121194266375340}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 00d953af43294b02a492772c496e7259, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  maxHits: 1
+  explosionPrefab: {fileID: 0}
