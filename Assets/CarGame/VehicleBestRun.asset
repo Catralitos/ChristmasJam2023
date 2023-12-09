@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: VehicleBestRun
   m_EditorClassIdentifier: 
   isRecord: 0
-  isReplay: 0
+  isReplay: 1
   recordFrequancy: 240
   timeStamp:
   - 6.8505974
