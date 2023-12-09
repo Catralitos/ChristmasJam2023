@@ -48,4 +48,9 @@ public void AddPlayer(PlayerInput player)
         playerTransform.GetComponentInChildren<Camera>().cullingMask |= 1 << layerToAdd;
         //playerTransform.GetComponentInChildren
     }
+
+    void OnPlayerJoined(PlayerInput playerInput)
+    {
+        //playerInput.gameObject.GetComponent<>
+    }
 }
