@@ -7,7 +7,6 @@ using UnityEngine;
 
 public class Countdown : MonoBehaviour
 {
-    public GameObject CountDown;
     public GameObject lapTimer;
 
     private TextMeshProUGUI countdownText;
@@ -17,6 +16,7 @@ public class Countdown : MonoBehaviour
     private void Start()
     {
         countdownText = GetComponent<TextMeshProUGUI>();
+        countdownText.text = "";
     }
 
     // Start is called before the first frame update
@@ -32,9 +32,8 @@ public class Countdown : MonoBehaviour
    IEnumerator CountDownRoutine()
     {
         yield return new WaitForSeconds(0.5f);
-        CountDown.SetActive(true);
 
-        CountDown.GetComponent<TextMeshProUGUI>().text = "3";
+        countdownText.text = "3";
         yield return new WaitForSeconds(1f);
         countdownText.text = "2";
         yield return new WaitForSeconds(1f);
@@ -43,7 +42,7 @@ public class Countdown : MonoBehaviour
         countdownText.text = "GO!";
         CarLevelManager.Instance.countdownEnded = true;
         yield return new WaitForSeconds(1f);
-        CountDown.SetActive(false);
+        countdownText.text = "";
 
         //GameObject.FindObjectsOfType<CarController>();
 

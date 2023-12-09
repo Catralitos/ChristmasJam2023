@@ -9,6 +9,9 @@ public class UIController : MonoBehaviour
 
     public GameObject CarLevel;
     public GameObject SpaceHarrierLevel;
+
+    public GameObject carCanvas;
+    public GameObject harrierCanvas;
     // Start is called before the first frame update
     void Start()
     {
@@ -21,10 +24,14 @@ public class UIController : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.A))
         {
             VirtualCamera.LookAt = CarLevel.transform;
+            harrierCanvas.SetActive(false);
+            carCanvas.SetActive(true);
         }
         if (Input.GetKeyDown(KeyCode.D))
         {
             VirtualCamera.LookAt = SpaceHarrierLevel.transform;
+            carCanvas.SetActive(false);
+            harrierCanvas.SetActive(true);
         }
     }
 }
