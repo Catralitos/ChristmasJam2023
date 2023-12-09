@@ -1,4 +1,5 @@
-﻿using UnityEngine;
+﻿using System;
+using UnityEngine;
 
 namespace SpaceHarrierScene.Lama
 {
@@ -27,6 +28,13 @@ namespace SpaceHarrierScene.Lama
             {
                 Destroy(gameObject);
             }
+        }
+
+        [HideInInspector] public Rigidbody rb;
+
+        private void Start()
+        {
+            rb = GetComponent<Rigidbody>();
         }
 
         #endregion
