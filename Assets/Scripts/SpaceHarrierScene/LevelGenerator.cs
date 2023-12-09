@@ -61,6 +61,7 @@ namespace SpaceHarrierScene
 
         public void SpawnMoreLevel()
         {
+            if (LamaEntity.Instance == null) return;
             Instantiate(tileObject,
                 new Vector3(tileObject.transform.position.x, -floorDistance, stepSize / 2.0f + stepSize * (_currentStep - 1)),
                 Quaternion.identity);
@@ -93,6 +94,7 @@ namespace SpaceHarrierScene
 
         private void SpawnEnemies()
         {
+            if (LamaEntity.Instance == null) return;
             int c = 0;
             int spawnedEnemies = 0;
             while (spawnedEnemies < startingEnemies && c < 1000)

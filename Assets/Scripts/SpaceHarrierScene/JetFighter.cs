@@ -25,6 +25,7 @@ namespace SpaceHarrierScene
         
         private void Update()
         {
+            if (LamaEntity.Instance == null) return;
             Vector3 playerPosition = LamaEntity.Instance.gameObject.transform.position;
             Vector3 jetTransform = transform.position;
             if (!_reachedPosition && 
