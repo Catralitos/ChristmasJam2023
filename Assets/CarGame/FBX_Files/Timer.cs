@@ -10,6 +10,8 @@ public class Timer : MonoBehaviour
 
     static float timer;
 
+    public int timerSeconds;
+
     private bool timerEnabled = true;
 
     // Start is called before the first frame update
@@ -33,10 +35,12 @@ public class Timer : MonoBehaviour
         string time = string.Format("{0:0}:{1:00}", minutes, seconds);
 
         timeText.text = time;
+        timerSeconds = seconds;
     }
 
     public void StopTimer()
     {
         timerEnabled = false;
+        
     }
 }
