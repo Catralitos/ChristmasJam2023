@@ -67,6 +67,8 @@ public class CarSphereController : MonoBehaviour
     void Update()
     {
 
+        if (!CarLevelManager.Instance.countdownEnded) return;
+        
         moveInput = moveVector.y;
         turnInput = moveVector.x;
 
@@ -101,6 +103,8 @@ public class CarSphereController : MonoBehaviour
 
     private void FixedUpdate()
     {
+        if (!CarLevelManager.Instance.countdownEnded) return;
+        
         if (isCarGrounded)
         {
             sphereRB.AddForce(transform.forward * moveInput, ForceMode.Acceleration);
