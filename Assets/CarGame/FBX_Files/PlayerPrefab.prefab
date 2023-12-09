@@ -134,8 +134,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7205743629837130887}
   serializedVersion: 2
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -7.982422, y: -5.165774, z: -99.52423}
+  m_LocalRotation: {x: 0.16176878, y: 0.6883538, z: -0.16176878, w: 0.6883538}
+  m_LocalPosition: {x: -6.6290894, y: -1.6219659, z: -96.32422}
   m_LocalScale: {x: 0.25, y: 0.25, z: 0.25}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -180,7 +180,7 @@ Camera:
   m_Depth: 0
   m_CullingMask:
     serializedVersion: 2
-    m_Bits: 4294967295
+    m_Bits: 2047
   m_RenderingPath: -1
   m_TargetTexture: {fileID: 0}
   m_TargetDisplay: 0
@@ -429,6 +429,16 @@ PrefabInstance:
       propertyPath: m_Camera
       value: 
       objectReference: {fileID: 4896563136904161063}
+    - target: {fileID: 5025360119646104611, guid: ed2378d0068972347a09e6105bd2b264,
+        type: 3}
+      propertyPath: m_DefaultControlScheme
+      value: Keyboard1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5025360119646104611, guid: ed2378d0068972347a09e6105bd2b264,
+        type: 3}
+      propertyPath: m_NeverAutoSwitchControlSchemes
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 6523378256448083829, guid: ed2378d0068972347a09e6105bd2b264,
         type: 3}
       propertyPath: m_Name
