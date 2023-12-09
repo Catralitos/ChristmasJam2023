@@ -5,6 +5,17 @@ using UnityEngine.InputSystem;
 
 public class CarSphereController : MonoBehaviour
 {
+
+    // Wheels
+    [SerializeField] private Transform frontLeftWheelTransform, frontRightWheelTransform;
+    [SerializeField] private Transform rearLeftWheelTransform, rearRightWheelTransform;
+
+    // Inside CarSphereController class
+
+    [SerializeField] private float wheelRotationSpeed = 360f; // Adjust the speed at which the wheels rotate
+    [SerializeField] private float maxWheelTurnAngle = 30f; // Maximum angle the wheels can turn
+
+
     private float moveInput;
     private float turnInput;
     private bool isCarGrounded;
@@ -25,7 +36,7 @@ public class CarSphereController : MonoBehaviour
 
     private Vector2 moveVector = Vector2.zero;
 
-
+    private bool controlsEnabled = true;
     private void Awake()
     {
         inputAsset =  GetComponentInParent<PlayerInput>().actions;
@@ -62,7 +73,7 @@ public class CarSphereController : MonoBehaviour
 
         moveInput *= moveInput > 0 ? fwdSpeed : revSpeed;
 
-        transform.position = sphereRB.transform.position;
+        transform.position = sphereRB.transform.position;   
 
         float newRotation = turnInput * turnSpeed * Time.deltaTime * Input.GetAxisRaw("Vertical");
 
@@ -83,7 +94,7 @@ public class CarSphereController : MonoBehaviour
             sphereRB.drag = airDrag;
         }
 
-
+ 
 
 
     }
@@ -93,14 +104,15 @@ public class CarSphereController : MonoBehaviour
         if (isCarGrounded)
         {
             sphereRB.AddForce(transform.forward * moveInput, ForceMode.Acceleration);
+
         }
         else
         {
             sphereRB.AddForce(transform.up * -20f);
         }
 
-
-        //sphereRB.AddForce(transform.forward * moveInput, ForceMode.Acceleration);
+        float rotationAmount = moveInput * wheelRotationSpeed * Time.fixedDeltaTime;
+        RotateWheels(rotationAmount);
     }
 
     private void OnMovementPerformed(InputAction.CallbackContext value)
@@ -112,4 +124,63 @@ public class CarSphereController : MonoBehaviour
     {
         moveVector = Vector2.zero;
     }
+
+    private void UpdateSingleWheel(Transform wheelTransform)
+    {
+        Quaternion wheelRotation = Quaternion.Euler(sphereRB.rotation.eulerAngles.x, wheelTransform.rotation.eulerAngles.y, wheelTransform.rotation.eulerAngles.z);
+        wheelTransform.rotation = wheelRotation;
+    }
+
+    // Method to rotate wheels based on car's movement
+    private void RotateWheels(float rotationAmount)
+    {
+        float wheelTurnAngle = turnInput * maxWheelTurnAngle;
+
+        // Rotate front wheels based on steering input
+        RotateWheel(frontLeftWheelTransform, rotationAmount, wheelTurnAngle);
+        RotateWheel(frontRightWheelTransform, rotationAmount, wheelTurnAngle);
+        SpinWheel(rearLeftWheelTransform, rotationAmount);
+        SpinWheel(rearRightWheelTransform, rotationAmount);
+
+        // ... (rotate other wheels if necessary)
+    }
+
+    private void RotateWheel(Transform wheelTransform, float rotationAmount, float wheelTurnAngle)
+    {
+        wheelTransform.Rotate(rotationAmount, 0, 0, Space.Self);
+
+        // Apply steering angle to the front wheels
+        Vector3 localRotation = wheelTransform.localRotation.eulerAngles;
+        localRotation.y = Mathf.Clamp(wheelTurnAngle, -maxWheelTurnAngle, maxWheelTurnAngle);
+        wheelTransform.localRotation = Quaternion.Euler(localRotation);
+    }
+
+    private void SpinWheel(Transform wheelTransform, float rotationAmount)
+    {
+        wheelTransform.Rotate(rotationAmount, 0, 0, Space.Self);
+    }
+
+
+    private void EnableMovement()
+    {
+        if (controlsEnabled)
+        {
+            player.Enable();
+        }
+    }
+
+    private void DisableMovement()
+    {
+        controlsEnabled = false;
+        player.Disable();
+    }
+
+    // Method to disable controls
+    public void DisableControls()
+    {
+        controlsEnabled = false;
+        player.Disable(); // Disable the input actions
+        // You might also want to reset the moveVector or perform any other necessary logic here
+    }
+
 }

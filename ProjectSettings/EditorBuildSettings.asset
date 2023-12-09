@@ -6,6 +6,12 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
+    path: Assets/Scenes/SelectionMenu.unity
+    guid: 6e3fd228325ea984382524699a24c964
+  - enabled: 1
     path: Assets/Scenes/RacingScene.unity
     guid: 99c9720ab356a0642a771bea13969a05
+  - enabled: 1
+    path: Assets/Scenes/SpaceHarrierScene.unity
+    guid: 8b38787bae17c31448b0a999077e5a84
   m_configObjects: {}
