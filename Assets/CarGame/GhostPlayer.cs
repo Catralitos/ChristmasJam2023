@@ -18,7 +18,7 @@ public class GhostPlayer : MonoBehaviour
     {
         timeValue += Time.unscaledDeltaTime;
 
-        if (ghost.isReplay)
+        if (CarLevelManager.Instance.countdownEnded && ghost.isReplay)
         {
             GetIndex();
             SetTransform();
