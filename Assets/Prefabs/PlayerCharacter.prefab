@@ -126,9 +126,12 @@ MonoBehaviour:
   verticalLimit: 10
   forwardFlightSpeed: 50
   sidewaysFlightSpeed: 75
-  fireCooldown: 0.5
+  fireCooldown: 0.1
   bulletPrefab: {fileID: 3835039562077567004, guid: ab84629d39b108249b62495551aae385,
     type: 3}
+  obstacles:
+    serializedVersion: 2
+    m_Bits: 256
 --- !u!54 &9126736209001382293
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -182,4 +185,5 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   maxHits: 100
+  points: 0
   explosionPrefab: {fileID: 0}

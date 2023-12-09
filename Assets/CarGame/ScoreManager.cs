@@ -18,4 +18,8 @@ public class ScoreManager : MonoBehaviour
     {
         submitScoreEvent.Invoke(inputName.text, int.Parse(inputScore.text));
     }
+
+    public class Instance
+    {
+    }
 }

@@ -1,3 +1,5 @@
+using System;
+using Extensions;
 using UnityEngine;
 
 namespace SpaceHarrierScene.Lama
@@ -17,13 +19,28 @@ namespace SpaceHarrierScene.Lama
             
         private float _horizontalInput, _verticalInput;
 
+        public LayerMask obstacles;
+
         private Rigidbody _rb;
+        private Health _health;
         private Vector3 _playerPos;
         private bool _moving = true;
-
+              
         private void Start()
         {
+            _health = GetComponent<Health>();
             _rb = GetComponent<Rigidbody>();
+        }
+
+        private void OnCollisionEnter(Collision other)
+        {
+            Debug.Log(other.gameObject);
+            if (obstacles.HasLayer(other.gameObject.layer))
+            {
+                Destroy(other.gameObject);
+                 //TODO spawn explosão
+                _health.TakeDamage();
+            }
         }
 
         // Update is called once per frame
