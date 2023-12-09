@@ -4,6 +4,8 @@ namespace SpaceHarrierScene
 {
     public class Health : MonoBehaviour
     {
+        [SerializeField] private GameObject livesHolder;
+        [SerializeField] private bool isPlayer;
         [SerializeField] public int maxHits;
         [SerializeField] public int points;
         private int _hitsLeft;
@@ -18,9 +20,10 @@ namespace SpaceHarrierScene
         public void TakeDamage()
         {
             _hitsLeft--;
+            if (isPlayer) Destroy(livesHolder.gameObject.transform.GetChild(livesHolder.gameObject.transform.childCount-1).gameObject);
             if (_hitsLeft < 1)
             {
-                HarrierScoreManager.Instance.IncreaseScore(points);
+                if (!isPlayer) HarrierScoreManager.Instance.IncreaseScore(points);
                 if (explosionPrefab) Instantiate(explosionPrefab, transform.position, Quaternion.identity);
                 Destroy(gameObject);
             }

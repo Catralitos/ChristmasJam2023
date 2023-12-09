@@ -184,6 +184,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 00d953af43294b02a492772c496e7259, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  livesHolder: {fileID: 0}
+  isPlayer: 1
   maxHits: 100
   points: 0
   explosionPrefab: {fileID: 0}

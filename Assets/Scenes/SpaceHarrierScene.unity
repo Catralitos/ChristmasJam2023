@@ -1241,6 +1241,11 @@ PrefabInstance:
       propertyPath: maxHits
       value: 3
       objectReference: {fileID: 0}
+    - target: {fileID: -3117184202954464601, guid: 6c0e42adc92a5954290b9670d5c7229e,
+        type: 3}
+      propertyPath: livesHolder
+      value: 
+      objectReference: {fileID: 1245441316}
     - target: {fileID: 2656991583656788407, guid: 6c0e42adc92a5954290b9670d5c7229e,
         type: 3}
       propertyPath: fireCooldown
