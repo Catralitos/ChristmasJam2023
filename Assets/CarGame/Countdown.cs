@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using TMPro;
@@ -6,46 +7,46 @@ using UnityEngine;
 
 public class Countdown : MonoBehaviour
 {
-    public GameObject CountDown;
     public GameObject lapTimer;
 
-
-
-
+    private TextMeshProUGUI countdownText;
     
-    // Start is called before the first frame update
-    void Start()
+    private bool _started;
+
+    private void Start()
     {
-        StartCoroutine(CountDownRoutine());
+        countdownText = GetComponent<TextMeshProUGUI>();
+        countdownText.text = "";
+    }
+
+    // Start is called before the first frame update
+    private void Update()
+    {
+        if (!_started && CarLevelManager.Instance.allCarsSpawned)
+        {
+            _started = true;
+            StartCoroutine(CountDownRoutine());
+        }
     }
 
    IEnumerator CountDownRoutine()
     {
         yield return new WaitForSeconds(0.5f);
-        CountDown.GetComponent<TextMeshProUGUI>().text = "3";
 
-        CountDown.SetActive(true);
-
+        countdownText.text = "3";
         yield return new WaitForSeconds(1f);
-        CountDown.SetActive(false);
-        CountDown.GetComponent<TextMeshProUGUI>().text = "2";
-        CountDown.SetActive(true);
+        countdownText.text = "2";
         yield return new WaitForSeconds(1f);
-        CountDown.SetActive(false);
-        CountDown.GetComponent<TextMeshProUGUI>().text = "1";
-        CountDown.SetActive(true);
+        countdownText.text = "1";
         yield return new WaitForSeconds(1f);
-        CountDown.SetActive(false);
-        CountDown.GetComponent<TextMeshProUGUI>().text = "GO!";
-        CountDown.SetActive(true);
+        countdownText.text = "GO!";
+        CarLevelManager.Instance.countdownEnded = true;
+        yield return new WaitForSeconds(1f);
+        countdownText.text = "";
 
         //GameObject.FindObjectsOfType<CarController>();
 
 
     }
-
-    public void StartCountdown()
-    {
-        StartCoroutine(CountDownRoutine());
-    }
 }
+

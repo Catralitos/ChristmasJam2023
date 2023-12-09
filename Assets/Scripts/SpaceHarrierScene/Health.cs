@@ -1,4 +1,5 @@
 ﻿using UnityEngine;
+using UnityEngine.SceneManagement;
 
 namespace SpaceHarrierScene
 {
@@ -24,6 +25,7 @@ namespace SpaceHarrierScene
             if (_hitsLeft < 1)
             {
                 if (!isPlayer) HarrierScoreManager.Instance.IncreaseScore(points);
+                else SceneManager.LoadScene(0);
                 if (explosionPrefab) Instantiate(explosionPrefab, transform.position, Quaternion.identity);
                 Destroy(gameObject);
             }

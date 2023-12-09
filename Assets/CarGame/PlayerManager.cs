@@ -46,6 +46,8 @@ public void AddPlayer(PlayerInput player)
 
         playerTransform.GetComponentInChildren<CinemachineVirtualCamera>().gameObject.layer = layerToAdd;
         playerTransform.GetComponentInChildren<Camera>().cullingMask |= 1 << layerToAdd;
+
+        CarLevelManager.Instance.numCarsSpawned++;
         //playerTransform.GetComponentInChildren
     }
 
