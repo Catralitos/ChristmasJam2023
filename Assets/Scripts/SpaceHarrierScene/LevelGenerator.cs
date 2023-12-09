@@ -1,5 +1,5 @@
-using System;
 using System.Collections.Generic;
+using SpaceHarrierScene.Lama;
 using UnityEngine;
 using Random = UnityEngine.Random;
 
@@ -34,17 +34,20 @@ namespace SpaceHarrierScene
 
         #endregion
         
-        public LayerMask obstaclesLayerMask;
-        public LayerMask floorLayerMask;
+        [SerializeField] private LayerMask obstaclesLayerMask;
+        [SerializeField] private LayerMask floorLayerMask;
         
-        public int stepSize;
-        public float floorDistance;
+        [SerializeField] private float jetSpawnDistance = 100.0f;
+        
+        [SerializeField] private int stepSize;
+        [SerializeField] private float floorDistance;
 
-        public float enemyRespawnTime;
+        [SerializeField] private float enemyRespawnTime = 10.0f;
         
         private int _currentStep;
-        private int _obstaclesToSpawn = 20;
-        
+        [SerializeField] private int startingObstacles;
+        [SerializeField] private int startingEnemies;
+
         public GameObject tileObject;
         public List<GameObject> obstacles;
         public List<GameObject> enemies;
@@ -53,7 +56,7 @@ namespace SpaceHarrierScene
         {
             _currentStep = 1;
             SpawnMoreLevel();
-            InvokeRepeating(nameof(SpawnEnemies), enemyRespawnTime, enemyRespawnTime);
+            InvokeRepeating(nameof(SpawnEnemies), enemyRespawnTime/2.0f, enemyRespawnTime);
         }
 
         public void SpawnMoreLevel()
@@ -64,9 +67,9 @@ namespace SpaceHarrierScene
             
             int c = 0;
             int spawnedObjects = 0;
-            while (spawnedObjects < _obstaclesToSpawn && c < 1000)
+            while (spawnedObjects < startingObstacles && c < 1000)
             {
-                Vector3 spawnPos = new Vector3(Random.Range(-stepSize, stepSize), 0,
+                Vector3 spawnPos = new Vector3(Random.Range(-stepSize/2, stepSize/2), 0,
                     Random.Range(stepSize * (_currentStep - 1), stepSize * _currentStep));
                 
                 if (Physics.OverlapCapsule(spawnPos + Vector3.down * floorDistance,
@@ -84,11 +87,33 @@ namespace SpaceHarrierScene
             }
             
             _currentStep++;
+            startingObstacles += startingObstacles / 3;
+            startingEnemies += startingEnemies / 3;
         }
 
         private void SpawnEnemies()
         {
-            
+            int c = 0;
+            int spawnedEnemies = 0;
+            while (spawnedEnemies < startingEnemies && c < 1000)
+            {
+                Vector3 spawnPos = new Vector3(Random.Range(-stepSize/2, stepSize/2), 0,
+                    LamaEntity.Instance.gameObject.transform.position.z + jetSpawnDistance);
+                
+                if (Physics.OverlapCapsule(spawnPos + Vector3.down * floorDistance,
+                        spawnPos + Vector3.up * floorDistance, 5.0f, obstaclesLayerMask).Length < 1)
+                {
+                    GameObject toSpawn = enemies[Random.Range(0, obstacles.Count)];
+                    Vector3 localScale = toSpawn.transform.localScale;
+                    spawnPos += new Vector3(0,
+                        Random.Range(-floorDistance + localScale.y / 2.0f, floorDistance - localScale.y / 2.0f), 0);
+                    GameObject spawned = Instantiate(toSpawn, spawnPos, Quaternion.identity);
+                    spawned.transform.position = spawnPos;
+                    Debug.Log("spawnPos " + spawnPos);
+                    spawnedEnemies++;
+                }
+                c++;
+            }
         }
     }
 }
