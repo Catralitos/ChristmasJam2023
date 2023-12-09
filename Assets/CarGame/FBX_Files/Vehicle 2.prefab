@@ -878,8 +878,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   sphereRB: {fileID: 421813121038126169}
-  revSpeed: 150
-  turnSpeed: 50
+  revSpeed: 100
+  turnSpeed: 100
+  airDrag: 0.1
+  groundDrag: 4
   groundLayer:
     serializedVersion: 2
     m_Bits: 8

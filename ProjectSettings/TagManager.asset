@@ -6,6 +6,7 @@ TagManager:
   tags:
   - finish
   - waypoint
+  - waypointHit
   layers:
   - Default
   - TransparentFX

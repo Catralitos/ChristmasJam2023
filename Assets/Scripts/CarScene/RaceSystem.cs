@@ -6,6 +6,8 @@ public class RaceSystem : MonoBehaviour
 {
     public bool waypointHit = false;
     public bool not_finished = true;
+
+
     // Start is called before the first frame update
     void Start()
     {
@@ -23,6 +25,7 @@ public class RaceSystem : MonoBehaviour
         if (other.gameObject.tag == "waypoint")
         {
             waypointHit = true;
+
         }
         if (other.gameObject.tag == "finish" && waypointHit)
         {
