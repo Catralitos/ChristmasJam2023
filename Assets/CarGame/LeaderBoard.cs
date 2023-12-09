@@ -25,6 +25,7 @@ public class LeaderBoard : MonoBehaviour
             {
                 names[i].text = msg[i].Username;
                 scores[i].text = msg[i].Score.ToString();
+
             }
         }));
     }
@@ -33,7 +34,7 @@ public class LeaderBoard : MonoBehaviour
     {
         LeaderboardCreator.UploadNewEntry(publicLeaderboardKey, username, score, ((msg) =>
         {
-
+            LeaderboardCreator.ResetPlayer();
             GetLeaderBoard();
         }));
     }

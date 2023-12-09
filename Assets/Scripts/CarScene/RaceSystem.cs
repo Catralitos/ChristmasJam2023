@@ -35,7 +35,7 @@ public class RaceSystem : MonoBehaviour
         {
             not_finished = false;
             FinishUI.SetActive(true);
-            finalTimer.text = timer.timeText.text;
+            finalTimer.text = timer.timerSeconds.ToString();
             carController.DisableControls();
             timer.StopTimer();
         }
