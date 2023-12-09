@@ -9,12 +9,12 @@ EditorBuildSettings:
     path: Assets/Scenes/SelectionMenu.unity
     guid: 6e3fd228325ea984382524699a24c964
   - enabled: 1
-    path: Assets/Scenes/RacingScene.unity
-    guid: 99c9720ab356a0642a771bea13969a05
-  - enabled: 1
-    path: Assets/Scenes/RacingSceneSingle.unity
-    guid: 06d7dae8315bc1340a0f06666fd7c8cd
-  - enabled: 1
     path: Assets/Scenes/SpaceHarrierScene.unity
     guid: 8b38787bae17c31448b0a999077e5a84
+  - enabled: 1
+    path: Assets/Scenes/RacingSceneMap2.unity
+    guid: f996ffe153fe2074695a91b4d9f5a302
+  - enabled: 1
+    path: Assets/Scenes/RacingSceneMap2 Single.unity
+    guid: 03408abaf17258e468d8a5f301b95913
   m_configObjects: {}

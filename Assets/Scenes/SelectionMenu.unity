@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.18028334, g: 0.22571328, b: 0.3069217, a: 1}
+  m_IndirectSpecularColor: {r: 0.18028378, g: 0.22571412, b: 0.30692285, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -723,7 +723,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 43715869}
   serializedVersion: 2
-  m_LocalRotation: {x: -5.1007154e-16, y: -0.10283483, z: -5.2732685e-17, w: 0.99469846}
+  m_LocalRotation: {x: 5.1007154e-16, y: -0.10283483, z: 5.2732685e-17, w: 0.99469846}
   m_LocalPosition: {x: 208.59, y: 1.664, z: 192.8}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -1144,7 +1144,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 194079289}
   serializedVersion: 2
-  m_LocalRotation: {x: -5.1007154e-16, y: -0.10283483, z: -5.2732685e-17, w: 0.99469846}
+  m_LocalRotation: {x: 5.1007154e-16, y: -0.10283483, z: 5.2732685e-17, w: 0.99469846}
   m_LocalPosition: {x: 208.59, y: 1.664, z: 192.8}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -1653,7 +1653,7 @@ MonoBehaviour:
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
-          m_StringArgument: RacingScene
+          m_StringArgument: RacingSceneMap2
           m_BoolArgument: 0
         m_CallState: 2
 --- !u!114 &281149769
@@ -5432,7 +5432,7 @@ MonoBehaviour:
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
-          m_StringArgument: RacingSceneSingle
+          m_StringArgument: RacingSceneMap2 Single
           m_BoolArgument: 0
         m_CallState: 2
 --- !u!114 &1131918979

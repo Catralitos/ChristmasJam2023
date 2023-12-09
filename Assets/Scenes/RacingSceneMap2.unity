@@ -826,7 +826,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e4377a406e26d6a458842fe6e7e5cf3d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  isSinglePlayer: 1
+  isSinglePlayer: 0
   numCarsSpawned: 0
   allCarsSpawned: 0
   countdownEnded: 0
