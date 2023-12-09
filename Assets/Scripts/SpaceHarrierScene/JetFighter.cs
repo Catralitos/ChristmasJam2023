@@ -10,6 +10,10 @@ namespace SpaceHarrierScene
         [SerializeField] private float distanceFromPlayer;
         [SerializeField] private float forwardFlightSpeed;
 
+        [SerializeField] private float bulletCooldown;
+        [SerializeField] private GameObject bulletPrefab;
+        private float _cooldownLeft;
+            
         private Rigidbody _rb;
         private Vector3 _jetPosition;
         private bool _reachedPosition;
@@ -18,12 +22,7 @@ namespace SpaceHarrierScene
         {
             _rb = GetComponent<Rigidbody>();
         }
-
-        private void OnCollisionEnter(Collision other)
-        {
-            Debug.Log("Collided with " + other.gameObject);
-        }
-
+        
         private void Update()
         {
             Vector3 playerPosition = LamaEntity.Instance.gameObject.transform.position;
@@ -39,11 +38,10 @@ namespace SpaceHarrierScene
                 _jetPosition = new Vector3(
                     jetTransform.x, jetTransform.y,
                     jetTransform.z - forwardFlightSpeed * Time.deltaTime);
-                
-                Debug.Log("transform.position 1 " + _jetPosition);
             }
             else
             {
+                _cooldownLeft -= Time.deltaTime;
                 if (!_addedJoint)
                 {
                     FixedJoint fj = gameObject.AddComponent<FixedJoint>();
@@ -52,11 +50,15 @@ namespace SpaceHarrierScene
                     _addedJoint = true;
                     _rb.position = new Vector3(_rb.position.x, _rb.position.y, playerPosition.z + distanceFromPlayer);
                 }
-                
-                //do code for firing
+
+                if (_cooldownLeft <= 0.0f)
+                {
+                    Instantiate(bulletPrefab, transform.position, Quaternion.identity);
+                    _cooldownLeft = bulletCooldown;
+                }
             }
         }
-
+        
         private void FixedUpdate()
         {
            if (!_reachedPosition) _rb.MovePosition(_jetPosition);

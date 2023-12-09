@@ -103,13 +103,12 @@ namespace SpaceHarrierScene
                 if (Physics.OverlapCapsule(spawnPos + Vector3.down * floorDistance,
                         spawnPos + Vector3.up * floorDistance, 5.0f, obstaclesLayerMask).Length < 1)
                 {
-                    GameObject toSpawn = enemies[Random.Range(0, obstacles.Count)];
+                    GameObject toSpawn = enemies[Random.Range(0, enemies.Count)];
                     Vector3 localScale = toSpawn.transform.localScale;
                     spawnPos += new Vector3(0,
                         Random.Range(-floorDistance + localScale.y / 2.0f, floorDistance - localScale.y / 2.0f), 0);
                     GameObject spawned = Instantiate(toSpawn, spawnPos, Quaternion.identity);
                     spawned.transform.position = spawnPos;
-                    Debug.Log("spawnPos " + spawnPos);
                     spawnedEnemies++;
                 }
                 c++;

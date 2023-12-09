@@ -14,6 +14,7 @@ GameObject:
   - component: {fileID: 2656991583656788407}
   - component: {fileID: 9126736209001382293}
   - component: {fileID: 6377176173935339567}
+  - component: {fileID: -3117184202954464601}
   m_Layer: 6
   m_Name: PlayerCharacter
   m_TagString: Untagged
@@ -125,6 +126,12 @@ MonoBehaviour:
   verticalLimit: 10
   forwardFlightSpeed: 50
   sidewaysFlightSpeed: 75
+  fireCooldown: 0.1
+  bulletPrefab: {fileID: 3835039562077567004, guid: ab84629d39b108249b62495551aae385,
+    type: 3}
+  obstacles:
+    serializedVersion: 2
+    m_Bits: 256
 --- !u!54 &9126736209001382293
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -164,3 +171,21 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2755ea1f052240d2a04a286b5ee12772, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  rb: {fileID: 0}
+--- !u!114 &-3117184202954464601
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4432992353564608701}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 00d953af43294b02a492772c496e7259, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  livesHolder: {fileID: 0}
+  isPlayer: 1
+  maxHits: 100
+  points: 0
+  explosionPrefab: {fileID: 0}

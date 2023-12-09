@@ -19,4 +19,8 @@ public class ScoreManager : MonoBehaviour
     {
         submitScoreEvent.Invoke(inputName.text, int.Parse(timer.timerSeconds.ToString()));
     }
+
+    public class Instance
+    {
+    }
 }
