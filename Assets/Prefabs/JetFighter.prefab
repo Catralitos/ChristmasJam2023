@@ -77,10 +77,10 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: 9d4e2336a1802d047bb0cee7e4046f33, type: 3}
-  m_Color: {r: 0.2886226, g: 0.23602703, b: 0.9811321, a: 1}
-  m_FlipX: 1
-  m_FlipY: 1
+  m_Sprite: {fileID: 21300000, guid: 419e6423e554be04e81c54cfe6b96413, type: 3}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_FlipX: 0
+  m_FlipY: 0
   m_DrawMode: 0
   m_Size: {x: 1.46875, y: 2.046875}
   m_AdaptiveModeThreshold: 0.5
@@ -107,7 +107,7 @@ BoxCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Size: {x: 1.46875, y: 2.046875, z: 0.2}
+  m_Size: {x: 2, y: 1, z: 0.2}
   m_Center: {x: 0, y: 0, z: 0}
 --- !u!54 &3757390852405533648
 Rigidbody:
@@ -165,6 +165,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 00d953af43294b02a492772c496e7259, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  livesHolder: {fileID: 0}
+  isPlayer: 0
   maxHits: 1
   points: 1000
   explosionPrefab: {fileID: 0}
