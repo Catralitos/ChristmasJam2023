@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.InputSystem;
 
 public class CarSphereController : MonoBehaviour
 {
@@ -17,6 +18,34 @@ public class CarSphereController : MonoBehaviour
     public LayerMask groundLayer;
 
     public float fwdSpeed;
+
+    private InputActionAsset inputAsset;
+    private InputActionMap player;
+    private InputAction move;
+
+    private Vector2 moveVector = Vector2.zero;
+
+
+    private void Awake()
+    {
+        inputAsset =  GetComponentInParent<PlayerInput>().actions;
+        player = inputAsset.FindActionMap("Player");
+    }
+
+    private void OnEnable()
+    {
+        move = player.FindAction("Move");
+        move.performed += OnMovementPerformed;
+        move.canceled += OnMovementCanceled;
+    }
+
+    private void OnDisable()
+    {
+        player.Disable();
+        move.performed -= OnMovementPerformed;
+        move.canceled -= OnMovementCanceled;
+    }
+
     // Start is called before the first frame update
     void Start()
     {
@@ -26,9 +55,9 @@ public class CarSphereController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
-        moveInput = Input.GetAxisRaw("Vertical");
-        turnInput = Input.GetAxisRaw("Horizontal");
+
+        moveInput = moveVector.y;
+        turnInput = moveVector.x;
 
 
         moveInput *= moveInput > 0 ? fwdSpeed : revSpeed;
@@ -74,4 +103,13 @@ public class CarSphereController : MonoBehaviour
         //sphereRB.AddForce(transform.forward * moveInput, ForceMode.Acceleration);
     }
 
+    private void OnMovementPerformed(InputAction.CallbackContext value)
+    {
+        moveVector = value.ReadValue<Vector2>();
+    }
+
+    private void OnMovementCanceled(InputAction.CallbackContext value)
+    {
+        moveVector = Vector2.zero;
+    }
 }
