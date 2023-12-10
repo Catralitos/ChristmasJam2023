@@ -16,10 +16,11 @@ public class GhostPlayer : MonoBehaviour
 
     void Update()
     {
-        timeValue += Time.unscaledDeltaTime;
+        
 
-        if (CarLevelManager.Instance.countdownEnded && ghost.isReplay)
+        if (CarLevelManager.Instance.allCarsSpawned && ghost.isReplay)
         {
+            timeValue += Time.unscaledDeltaTime;
             GetIndex();
             SetTransform();
         }
