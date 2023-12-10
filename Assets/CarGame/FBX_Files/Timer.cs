@@ -23,7 +23,7 @@ public class Timer : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (timerEnabled)
+        if (timerEnabled & CarLevelManager.Instance.countdownEnded)
         {
             timer += Time.deltaTime;
         }
@@ -35,7 +35,7 @@ public class Timer : MonoBehaviour
         string time = string.Format("{0:0}:{1:00}", minutes, seconds);
 
         timeText.text = time;
-        timerSeconds = seconds;
+        timerSeconds = seconds + (minutes*60);
     }
 
     public void StopTimer()

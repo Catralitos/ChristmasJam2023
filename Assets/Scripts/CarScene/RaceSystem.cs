@@ -25,14 +25,11 @@ public class RaceSystem : MonoBehaviour
         float randomValue = Random.value; // Get a random float value between 0.0 and 1.0
 
         // Check if randomValue is less than 0.5 (50% chance)
-        if (randomValue < 0.5f)
-        {
-            MakeBlue();
-        }
-        else
+        if (CarLevelManager.Instance.numCarsSpawned == 1)
         {
             MakeYellow();
         }
+    
     }
 
     // Update is called once per frame
